@@ -2,7 +2,7 @@ import { Body, Controller, Get, Param, Post, Query } from '@nestjs/common';
 import { RestaurantsService } from './restaurants.service';
 import { CreateRestaurantDto } from './dto/create-restaurant.dto';
 import { FilterRestaurantDto } from './dto/filter-restaurant.dto';
-import { ApiTags, ApiQuery } from '@nestjs/swagger';
+import { ApiTags, ApiQuery, ApiParam } from '@nestjs/swagger';
 
 @ApiTags('restaurants')
 @Controller('restaurants')
@@ -21,6 +21,7 @@ export class RestaurantsController {
   }
 
   @Get(':identifier')
+  @ApiParam({ name: 'identifier', description: 'restaurant slug or id' })
   findOne(@Param('identifier') identifier: string) {
     return this.restaurantsService.findOne(identifier);
   }
