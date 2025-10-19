@@ -8,7 +8,7 @@ interface RestaurantQuery {
   cuisines?: string;
 }
 @Injectable()
-export class RestaurantService {
+export class RestaurantsService {
   constructor(
     @InjectModel(Restaurant.name)
     private restaurantModel: Model<Restaurant>,
